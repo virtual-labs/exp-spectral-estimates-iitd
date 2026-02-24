@@ -16,7 +16,7 @@
         "d": "Bias may remain, especially for short signals or improper windowing."
       },
       "correctAnswer": "b",
-      "difficulty": "hard"
+      "difficulty": "intermediate"
     },
     {
       "question": "2. Which scenario would most likely degrade the reliability of the periodogram in estimating a signal’s PSD?",
@@ -33,7 +33,7 @@
         "d": "Averaging overlapping FFTs is part of Welch, which improves reliability."
       },
       "correctAnswer": "c",
-      "difficulty": "hard"
+      "difficulty": "intermediate"
     },
     {
       "question": "3. In the Bartlett method, why is the variance reduced compared to a basic periodogram, and what is the resulting trade-off?",
@@ -50,7 +50,7 @@
         "d": "Bartlett does not involve overlapping or cause time-domain distortion."
       },
       "correctAnswer": "c",
-      "difficulty": "hard"
+      "difficulty": "intermediate"
     },
     {
       "question": "4. In Welch’s method, how does the use of overlapping segments influence the spectral estimate?",
@@ -67,7 +67,7 @@
         "d": "Resolution depends on segment length, not FFT bin width."
       },
       "correctAnswer": "c",
-      "difficulty": "hard"
+      "difficulty": "intermediate"
     },
     {
       "question": "5. When applying a window in a windowed periodogram, what is the **key effect** on the frequency domain representation?",
@@ -84,7 +84,7 @@
         "d": "Windowing and zero-padding are separate processes."
       },
       "correctAnswer": "b",
-      "difficulty": "hard"
+      "difficulty": "intermediate"
     },
     {
       "question": "6. The correlogram method assumes a key property about the signal to compute the PSD. What is that assumption?",
@@ -101,7 +101,7 @@
         "d": "Time band-limiting affects resolution but isn't assumed by correlogram."
       },
       "correctAnswer": "c",
-      "difficulty": "hard"
+      "difficulty": "intermediate"
     },
     {
       "question": "7. Which of the following best distinguishes the Blackman-Tukey method from the correlogram?",
@@ -118,7 +118,7 @@
         "d": "Stationarity is assumed in both methods."
       },
       "correctAnswer": "c",
-      "difficulty": "hard"
+      "difficulty": "intermediate"
     },
     {
       "question": "8. What is a key limitation of the windowed periodogram despite its leakage-reduction capability?",
@@ -135,7 +135,7 @@
         "d": "It's efficient; parametric methods have different trade-offs."
       },
       "correctAnswer": "b",
-      "difficulty": "hard"
+      "difficulty": "intermediate"
     },
     {
       "question": "9. In Welch's method, which configuration would most effectively balance resolution and variance reduction?",
@@ -152,7 +152,7 @@
         "d": "Zero-padding doesn’t improve variance; full length = fewer averages."
       },
       "correctAnswer": "c",
-      "difficulty": "hard"
+      "difficulty": "advanced"
     },
     {
       "question": "10. Which method is most appropriate when the goal is to estimate PSD from autocorrelation with minimal spectral leakage and controlled resolution?",
@@ -169,7 +169,7 @@
         "d": "Bartlett splits signal into segments, not based on autocorrelation."
       },
       "correctAnswer": "c",
-      "difficulty": "hard"
+      "difficulty": "advanced"
     }
   ]
 }

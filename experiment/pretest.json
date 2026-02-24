@@ -152,7 +152,7 @@
         "d": "Averaging magnitudes is not part of Blackman-Tukey."
       },
       "correctAnswer": "b",
-      "difficulty": "intermediate"
+      "difficulty": "advanced"
     },
     {
       "question": "10. Which method provides the most consistent estimate (in the statistical sense) of the true PSD as the number of data samples increases?",
@@ -169,7 +169,7 @@
         "d": "Welch is more consistent than periodogram but not strictly consistent in all cases."
       },
       "correctAnswer": "b",
-      "difficulty": "intermediate"
+      "difficulty": "advanced"
     }
   ]
 }
