@@ -1,0 +1,1 @@
+**The aim of this experiment is to study and compare various spectral estimation techniques, including Correlogram, Blackman–Tukey, Windowed Periodogram, Bartlett, and Welch methods, and analyze the statistical properties of signal estimates under different conditions.**

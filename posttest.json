@@ -1,0 +1,175 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "In the Blackman-Tukey method, how does truncating the autocorrelation function and applying a window affect the spectral estimate?",
+      "answers": {
+        "a": "It increases resolution by reducing the main lobe width.",
+        "b": "It reduces the variance at the cost of resolution.",
+        "c": "It eliminates spectral leakage caused by finite data length.",
+        "d": "It ensures an unbiased estimate by removing noise correlation."
+      },
+      "explanations": {
+        "a": "Incorrect — truncation reduces resolution rather than improving it.",
+        "b": "Correct — truncating and windowing smooths the autocorrelation, reducing variance but sacrificing resolution.",
+        "c": "Incorrect — leakage is reduced but not eliminated.",
+        "d": "Incorrect — bias may remain, especially for short signals or improper windowing."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which scenario would most likely degrade the reliability of the periodogram in estimating a signal’s PSD?",
+      "answers": {
+        "a": "Applying a Hanning window to the signal.",
+        "b": "Using a longer DFT length than the signal duration.",
+        "c": "Estimating from a short, non-overlapping segment of noisy data.",
+        "d": "Averaging multiple FFTs over overlapping windows."
+      },
+      "explanations": {
+        "a": "Incorrect — Hanning windows help reduce leakage, not reliability.",
+        "b": "Incorrect — zero-padding (longer DFT) interpolates but does not degrade reliability.",
+        "c": "Correct — short noisy segments increase variance and reduce estimation quality.",
+        "d": "Incorrect — averaging overlapping FFTs is part of Welch, which improves reliability."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In the Bartlett method, why is the variance reduced compared to a basic periodogram, and what is the resulting trade-off?",
+      "answers": {
+        "a": "Fewer DFT points reduce computational error but increase bias.",
+        "b": "Shorter segments allow faster FFTs, enhancing resolution.",
+        "c": "Averaging multiple segments reduces variance but lowers frequency resolution.",
+        "d": "Overlapping segments reduce spectral leakage but introduce time-domain distortion."
+      },
+      "explanations": {
+        "a": "Incorrect — DFT points aren't reduced — segmenting is the key idea.",
+        "b": "Incorrect — shorter segments reduce resolution, not improve it.",
+        "c": "Correct — Bartlett reduces variance via averaging at the cost of resolution.",
+        "d": "Incorrect — Bartlett does not involve overlapping or cause time-domain distortion."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In Welch’s method, how does the use of overlapping segments influence the spectral estimate?",
+      "answers": {
+        "a": "It increases variance due to redundant data.",
+        "b": "It decreases resolution due to segment dependency.",
+        "c": "It reduces variance by increasing the number of averaged estimates.",
+        "d": "It improves resolution by narrowing the FFT bin width."
+      },
+      "explanations": {
+        "a": "Incorrect — overlapping segments increase the number of segments, improving variance.",
+        "b": "Incorrect — resolution is affected by segment length, not overlap.",
+        "c": "Correct — more overlapping segments → more averaging → lower variance.",
+        "d": "Incorrect — resolution depends on segment length, not FFT bin width."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "When applying a window in a windowed periodogram, what is the key effect on the frequency domain representation?",
+      "answers": {
+        "a": "It improves resolution by narrowing frequency peaks.",
+        "b": "It reduces spectral leakage by tapering time-domain edges.",
+        "c": "It enhances high-frequency components by boosting gain.",
+        "d": "It increases FFT accuracy by zero-padding the signal."
+      },
+      "explanations": {
+        "a": "Incorrect — windows typically widen the main lobe (reduce resolution).",
+        "b": "Correct — tapering the signal reduces discontinuities → less leakage.",
+        "c": "Incorrect — windowing does not boost specific frequency bands.",
+        "d": "Incorrect — windowing and zero-padding are separate processes."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "The correlogram method assumes a key property about the signal to compute the PSD. What is that assumption?",
+      "answers": {
+        "a": "The signal is strictly periodic.",
+        "b": "The signal is white and Gaussian.",
+        "c": "The signal is wide-sense stationary.",
+        "d": "The signal is band-limited in time."
+      },
+      "explanations": {
+        "a": "Incorrect — correlogram works for stochastic signals — periodicity is not required.",
+        "b": "Incorrect — Gaussianity is not required, though it helps in some contexts.",
+        "c": "Correct — WSS ensures the autocorrelation depends only on lag.",
+        "d": "Incorrect — time band-limiting affects resolution but isn't assumed by correlogram."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which of the following best distinguishes the Blackman-Tukey method from the correlogram?",
+      "answers": {
+        "a": "It uses overlapping segments instead of full-length autocorrelation.",
+        "b": "It estimates autocorrelation using FFT of each segment.",
+        "c": "It applies a window to the autocorrelation before computing the PSD.",
+        "d": "It does not require the assumption of stationarity."
+      },
+      "explanations": {
+        "a": "Incorrect — that’s a Welch technique.",
+        "b": "Incorrect — FFT is used after autocorrelation, not for computing it.",
+        "c": "Correct — the key idea in Blackman-Tukey is smoothing Rxx[n] with a window.",
+        "d": "Incorrect — stationarity is assumed in both methods."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is a key limitation of the windowed periodogram despite its leakage-reduction capability?",
+      "answers": {
+        "a": "It requires zero-padding to estimate the spectrum.",
+        "b": "It does not improve variance compared to the basic periodogram.",
+        "c": "It introduces high bias in the estimated power.",
+        "d": "It is computationally inefficient compared to parametric methods."
+      },
+      "explanations": {
+        "a": "Incorrect — zero-padding is optional, not required.",
+        "b": "Correct — windowing reduces leakage but doesn’t reduce variance; averaging is needed.",
+        "c": "Incorrect — bias depends on the window and data, not necessarily high.",
+        "d": "Incorrect — it's efficient; parametric methods have different trade-offs."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In Welch's method, which configuration would most effectively balance resolution and variance reduction?",
+      "answers": {
+        "a": "Long non-overlapping segments with no windowing.",
+        "b": "Short overlapping segments with rectangular windows.",
+        "c": "Moderate-length overlapping segments with tapering windows like Hanning.",
+        "d": "Full-length segments with zero-padding and Kaiser window."
+      },
+      "explanations": {
+        "a": "Incorrect — no overlap = less averaging → higher variance.",
+        "b": "Incorrect — short segments = lower resolution, rectangular window = more leakage.",
+        "c": "Correct — this balances averaging (variance reduction) and leakage control (via window).",
+        "d": "Incorrect — zero-padding doesn’t improve variance; full length = fewer averages."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which method is most appropriate when the goal is to estimate PSD from autocorrelation with minimal spectral leakage and controlled resolution?",
+      "answers": {
+        "a": "Windowed Periodogram",
+        "b": "Welch Method",
+        "c": "Blackman-Tukey Method",
+        "d": "Bartlett Method"
+      },
+      "explanations": {
+        "a": "Incorrect — windowed periodograms directly estimate PSD, not via autocorrelation.",
+        "b": "Incorrect — Welch doesn’t use Rxx — it averages periodograms.",
+        "c": "Correct — Blackman-Tukey smooths the autocorrelation before FFT, controlling leakage and variance.",
+        "d": "Incorrect — Bartlett splits signal into segments, not based on autocorrelation."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    }
+  ]
+}
