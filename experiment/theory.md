@@ -55,7 +55,9 @@
   <li>\(X_w(f)\) : DFT of the windowed signal \(x[n] \cdot w[n]\)</li>
   <li>\(U = \frac{1}{N} \sum_{n=0}^{N-1} |w[n]|^2\) : Normalization factor</li>
 </ul>
-
+<p>
+Windowing smooths the discontinuities at the signal boundaries, thereby reducing sidelobes in the spectral estimate. However, this improvement comes at the expense of slightly reduced frequency resolution due to the widening of the main lobe.
+  </p>
 <h3>Common Window Functions</h3>
 
 <ul>
@@ -99,7 +101,8 @@
 <h2>Correlogram</h2>
 
 <p>
-  The <b>Correlogram</b> method estimates the PSD based on the Fourier Transform of the estimated autocorrelation function.
+  The <b>Correlogram</b> method estimates the PSD based on the Fourier Transform of the estimated autocorrelation function. Unlike the periodogram, which estimates the spectrum directly from the signal, the correlogram estimates the PSD by computing the Fourier transform of the signal's autocorrelation function. This approach is based on the Wiener–Khinchin theorem, which states that the PSD is the Fourier transform of the autocorrelation sequence.
+  
 </p>
 
 <h3>PSD via Autocorrelation</h3>
@@ -163,7 +166,9 @@
 <h2>Bartlett Method</h2>
 
 <p>
-  Estimate PSD by segmenting the signal, computing periodograms, and averaging:
+ The Bartlett method is an extension of the classical periodogram that aims to reduce the large variance associated with a single periodogram estimate. Instead of estimating the PSD from the entire data record, the available signal is divided into several non-overlapping segments of equal length. A separate periodogram is computed for each segment, and the individual estimates are then averaged to obtain the final PSD.
+Averaging multiple periodograms reduces random fluctuations in the spectral estimate, resulting in a smoother and more reliable PSD. However, because each segment contains fewer samples than the original signal, the method sacrifices some frequency resolution in exchange for lower variance. Thus, the Bartlett method provides an effective balance between estimation stability and spectral resolution.
+
 </p>
 
 <p>
@@ -203,7 +208,9 @@
 <h2>Blackman-Tukey Method</h2>
 
 <p>
-  Estimate PSD using autocorrelation and windowing:
+  The Blackman–Tukey method combines the concepts of autocorrelation-based spectrum estimation and windowing. Instead of directly computing the Fourier transform of the estimated autocorrelation sequence, a suitable window is first applied to the autocorrelation values before performing the transform. This window suppresses the contribution of unreliable autocorrelation estimates at large lags, thereby reducing estimation variance and spectral fluctuations.
+By selecting an appropriate window function, the Blackman–Tukey method offers flexibility in controlling the trade-off between frequency resolution and spectral smoothness. Consequently, it provides more stable PSD estimates than the basic correlogram method, particularly when only a limited amount of data is available.
+
 </p>
 
 <p>
@@ -246,7 +253,9 @@
 <h2>Welch Method</h2>
 
 <p>
-  Improves periodogram estimation by segmenting, windowing, and averaging:
+ The Welch method is one of the most widely used non-parametric techniques for PSD estimation because it significantly improves upon both the classical periodogram and the Bartlett method. Similar to Bartlett's approach, the signal is divided into several shorter segments. However, unlike Bartlett's method, the segments are allowed to overlap, and each segment is multiplied by a window function before computing its periodogram.
+The overlap increases the number of available spectral estimates without requiring additional data, while the window function reduces spectral leakage. Averaging these windowed periodograms produces a PSD estimate with considerably lower variance and improved statistical stability. Due to its excellent compromise between frequency resolution, variance reduction, and computational efficiency, Welch's method has become one of the standard techniques for practical power spectral density estimation.
+
 </p>
 
 <p>
