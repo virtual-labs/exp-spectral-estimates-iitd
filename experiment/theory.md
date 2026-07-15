@@ -10,9 +10,7 @@
 
 <p>
   The <b>windowed periodogram</b> is a widely used technique for estimating the 
-  <i>Power Spectral Density (PSD)</i> of a signal. It enhances the classical periodogram 
-  by mitigating spectral leakage through the application of a windowing function. 
-  This technique is essential in signal processing for accurate frequency-domain analysis.
+  <i>Power Spectral Density (PSD)</i> of a discrete-time signal. Here a window function is applied to the finite-length signal before computing its Fourier transform. The use of a window significantly reduces spectral leakage, which arises from the abrupt truncation of finite-duration signals, thereby providing a more reliable estimate of the signal spectrum. It enhances the classical periodogram by mitigating spectral leakage through the application of a windowing function. 
 </p>
 
 <h3>Classical Periodogram</h3>
